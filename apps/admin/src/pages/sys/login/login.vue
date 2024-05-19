@@ -23,7 +23,7 @@ const { t } = useI18n()
   <div :class="bem()">
     <div :class="bem('slogan')" class="hidden xl:flex">
       <div :class="bem('logo')">
-        <img :title="title" :alt="title" src="@/assets/images/logo.png" />
+        <img :title="title" :alt="title" src="@/assets/images/logo_w.png" />
         <div :class="[bem('logo-title'), 'truncate']">
           {{ title }}
         </div>
@@ -32,7 +32,7 @@ const { t } = useI18n()
       <div class="my-auto">
         <img
           :alt="title"
-          src="@/assets/svg/login-box-bg.svg"
+          src="@/assets/images/loginbg.png"
           class="w-2/3 -enter-x"
         />
         <div class="mt-10 font-medium text-white -enter-x">

@@ -84,6 +84,16 @@ const LOGIN_ROUTE: RouteRecordItem = {
   },
 }
 
+//DB:注册页面
+const REG_ROUTE: RouteRecordItem = {
+  path: '/reg',
+  name: 'Reg',
+  component: () => import('@/pages/sys/login/login.vue'),
+  meta: {
+    title: "社团注册页面",
+  },
+}
+
 const LOCK_SCREEN_ROUTE: RouteRecordItem = {
   path: '/lock',
   name: 'Lock',
@@ -99,5 +109,6 @@ export {
   REDIRECT_ROUTE,
   ROOT_ROUTE,
   LOGIN_ROUTE,
+  REG_ROUTE, //DB:注册页面
   LOCK_SCREEN_ROUTE,
 }

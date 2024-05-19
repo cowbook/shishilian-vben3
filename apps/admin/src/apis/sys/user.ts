@@ -41,8 +41,8 @@ export interface GetUserInfoModel {
 }
 
 enum Api {
-  Login = '/login',
-  Logout = '/logout',
+  Login = '/vlogin', //DB
+  Logout = '/vlogout', //DB
   GetUserInfo = '/getUserInfo',
   GetPermCode = '/getPermCode',
   TestRetry = '/testRetry',

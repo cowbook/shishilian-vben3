@@ -9,6 +9,8 @@ export interface RoleInfo {
 export interface LoginParams {
   username: string
   password: string
+  //DB
+  groupid?: string 
 }
 
 export interface LoginResultModel {
@@ -32,7 +34,7 @@ export function doLoginApi(
 ) {
   return request.post<LoginResultModel>(
     {
-      url: '/login',
+      url: '/vlogin', //DB:login url
       params,
     },
     {
@@ -53,5 +55,5 @@ export function getPermCode() {
 }
 
 export function doLogoutApi() {
-  return request.get({ url: '/logout' })
+  return request.get({ url: '/vlogout' })  //DB:注销
 }

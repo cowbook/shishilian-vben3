@@ -21,7 +21,7 @@ import { configureDynamicParamsMenu } from './helper'
 const LOADED_PAGE_POOL = new Map<string, boolean>()
 const LOCK_PATH = BASIC_LOCK_PATH
 const LOGIN_PATH = BASIC_LOGIN_PATH
-const whitePathList: string[] = [LOGIN_PATH, LOCK_PATH]
+const whitePathList: string[] = [LOGIN_PATH, LOCK_PATH,'/reg'] //DB:增加注册页面
 const ROOT_PATH = ROOT_ROUTE.path
 
 // 创建基础路由守卫

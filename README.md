@@ -1,7 +1,10 @@
 <div align="center">
   <img alt="VbenAdmin Logo" width="200" height="180" src="https://anncwb.github.io/anncwb/images/logo.png"/>
-  <h1>vben3 后台管理系统</h1>
+  <h1> 时时连小程序 - 社团控制台 - 前端   </h1>
+  <h3> 基于vben3 后台管理系统</h3>
 </div>
+
+
 <div align="center">
   <a href="https://github.com/vbenjs/vben3/blob/master/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/vbenjs/vben3?style=flat"/></a>
   <a href="https://github.com/vbenjs/vben3/actions" alt="Build Status"><img src="https://img.shields.io/github/actions/workflow/status/vbenjs/vben3/deploy.yml?branch=master"/></a>
@@ -12,9 +15,11 @@
 </div>
 
 
-[English](./README.en-US.md) | 简体中文
+[Vben English](./README.en-US.md) | 简体中文
 
 ## 简介
+
+本系统是时时连小程序的后台管理前端界面，主要提供给社团管理员控制台，以设置社团的问卷，管理社团贴子，社友基本情况等等功能。基于Vben3。
 
 Vben3 是一个免费开源的中后台模版。使用了最新的`vue3`,`vite4`,`TypeScript`等主流技术开发，开箱即用的中后台前端解决方案，也可用于学习参考。
 

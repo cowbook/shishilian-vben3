@@ -18,6 +18,14 @@ import {
 } from './use-login';
 import LoginFormTitle from './login-form-title.vue';
 
+//DB:区分不同的入口是注册还是登录
+import { useGo } from '/@/hooks/web/usePage';
+import { useRoute } from 'vue-router';  
+const route = useRoute();
+const showModal =ref(false);
+
+console.log('path',route.path);
+
 const formRef = ref();
 const loading = ref(false);
 const rememberMe = ref(false);
@@ -27,10 +35,30 @@ const userStore = useUserStore();
 const { setLoginState, getLoginState } = useLoginState();
 const { getFormRules } = useFormRules();
 
+//DB:根据URL转注册页面
+if(route.path == '/reg'){
+
+  setLoginState(LoginStateEnum.REGISTER);
+  
+}
+
 const formData = reactive({
   account: 'vben',
-  password: '123456'
+  password: '123456',
+  groupid: 0, //DB:添加社团编号
+
 });
+
+//DB:添加社团待选列表
+const options = ref<Array<Object>>([]);
+
+//DB:添加跳转到注册页面
+async function goReg() {
+    go(PageEnum.BASE_REGISTER);
+}
+
+
+
 
 const { validForm } = useFormValid(formRef);
 //onKeyStroke('Enter', handleLogin);
@@ -46,16 +74,38 @@ async function handleLogin() {
     const userInfo = await userStore.login({
       password: formData.password,
       username: formData.account,
+      groupid:formData.groupid, //DB:添加社团编号
       mode: 'none' //不要默认的错误提示
     });
 
-    if (userInfo) {
+    console.log(userInfo);
+
+    //DB:添加判断token 和 else 语句
+    if (userInfo && userInfo.token != '') {
       notice.success({
-        content: t('sys.login.loginSuccessTitle'),
-        meta: `${t('sys.login.loginSuccessDesc')}: ${userInfo.realname}`,
-        duration: 3000
-      });
-    }
+          content: t('sys.login.loginSuccessTitle'),
+          meta: `${t('sys.login.loginSuccessDesc')}: ${userInfo.realName}`,
+          duration: 3000,
+        });
+      } else {
+
+        options.value = userInfo.groups?.map((item) => {
+          return {
+            label: item.name,
+            value: item.id,
+          };
+        });
+
+        showModal.value = true;
+
+        formData.groupid = options.value[0].value;
+
+        console.log(options);
+
+        return;
+      }
+
+   
   } catch (error) {
     // dialog.error({
     //   title: t('sys.api.errorTip'),
@@ -68,6 +118,34 @@ async function handleLogin() {
 }
 </script>
 <template>
+
+<VbenModal :show="showModal" @maskClick="() => showModal = !showModal">
+  <VbenCard class="w-1/2" title="🎸选择您要进入的社团" role="dialog">
+
+    <vben-select
+        size="large"
+        :options = "options"
+        v-model:value="formData.groupid"
+        class="fix-auto-fill"
+      />
+    
+      <vben-button
+        class="my-5"
+        type="primary"
+        size="large"
+        block
+        @click="handleLogin"
+        :loading="loading"
+      >
+        {{t('sys.login.loginButton')}}
+      </vben-button>
+
+  </VbenCard>
+
+    </VbenModal>
+
+
+
   <login-form-title v-show="show" class="enter-x" />
   <vben-form
     :model="formData"
@@ -84,6 +162,7 @@ async function handleLogin() {
         class="fix-auto-fill"
       />
     </vben-form-item>
+
     <vben-form-item class="enter-x" inline :show-label="false">
       <vben-input
         type="password"

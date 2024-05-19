@@ -69,13 +69,18 @@ export const useUserStore = defineStore('app-user-store', {
     ): Promise<UserInfo | null> {
       try {
         const { goHome = true, mode, ...loginParams } = params
-        const { accessToken } = await doLoginApi(loginParams, mode)
+        //const { accessToken } = await doLoginApi(loginParams, mode)
         // save token
-        this.setAccessToken(accessToken)
-        if (!this.getAccessToken) {
-          return null
+        
+        //DB:如果传的是token是空的那么就直接返回数据让后序处理
+        const data = await doLoginApi(loginParams, mode)
+        const {token} = data;
+        if(token ==''){
+          return data;
+        }else{
+          this.setAccessToken(token);
+          return this.afterLoginAction(goHome);
         }
-        return this.afterLoginAction(goHome)
       } catch (error) {
         return Promise.reject(error)
       }

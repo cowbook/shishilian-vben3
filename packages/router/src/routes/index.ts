@@ -1,5 +1,6 @@
 import {
   LOGIN_ROUTE,
+  REG_ROUTE,//DB:注册页面
   PAGE_NOT_FOUND_ROUTE,
   REDIRECT_ROUTE,
   ROOT_ROUTE,
@@ -28,6 +29,7 @@ export function getTemplateRoutes(demo: boolean = true): RouteRecordRaw[] {
 
 export const BasicRoutes = [
   LOGIN_ROUTE,
+  REG_ROUTE,
   LOCK_SCREEN_ROUTE,
   ROOT_ROUTE,
   REDIRECT_ROUTE,

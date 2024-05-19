@@ -45,15 +45,15 @@ export default {
   },
   login: {
     backSignIn: '返回',
-    signInFormTitle: '登录',
+    signInFormTitle: '社团管理员登录',
     mobileSignInFormTitle: '手机登录',
     qrSignInFormTitle: '二维码登录',
-    signUpFormTitle: '注册',
+    signUpFormTitle: '注册新社团',
     forgetFormTitle: '重置密码',
 
-    signInTitle: '开箱即用的中后台管理系统',
-    signInDesc: '输入您的个人详细信息开始使用！',
-    policy: '我同意xxx隐私政策',
+    signInTitle: '时时连小程序-管理控制台',
+    signInDesc: '个性化定制并管理您在线社团专属小程序',
+    policy: '我同意 时时连 隐私政策',
     scanSign: `扫码后点击"确认"，即可完成登录`,
 
     loginButton: '登录',
@@ -74,7 +74,7 @@ export default {
     policyPlaceholder: '勾选后才能注册',
     diffPwd: '两次输入密码不一致',
 
-    userName: '账号',
+    userName: '输入11位手机号码',
     password: '密码',
     confirmPassword: '确认密码',
     email: '邮箱',
