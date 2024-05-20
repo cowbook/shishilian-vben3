@@ -56,9 +56,9 @@ export default {
     signUpFormTitle: 'Sign up',
     forgetFormTitle: 'Reset password',
 
-    signInTitle: 'Backstage management system',
-    signInDesc: 'Enter your personal details and get started!',
-    policy: 'I agree to the xxx Privacy Policy',
+    signInTitle: 'ShiShiLian Admin Console',
+    signInDesc: 'ShiShiLian Your Wechat-App Community Management Platform',
+    policy: 'I agree to the ShiShiLian Privacy Policy',
     scanSign: `scanning the code to complete the login`,
 
     loginButton: 'Sign in',
@@ -72,14 +72,14 @@ export default {
     loginSuccessDesc: 'Welcome back',
 
     // placeholder
-    accountPlaceholder: 'Please input username',
+    accountPlaceholder: 'Please input Mobile',
     passwordPlaceholder: 'Please input password',
     smsPlaceholder: 'Please input sms code',
     mobilePlaceholder: 'Please input mobile',
     policyPlaceholder: 'Register after checking',
     diffPwd: 'The two passwords are inconsistent',
 
-    userName: 'Username',
+    userName: '11-digit Mobile',
     password: 'Password',
     confirmPassword: 'Confirm Password',
     email: 'Email',

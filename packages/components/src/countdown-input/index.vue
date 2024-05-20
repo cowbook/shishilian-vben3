@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+
 import type { PropType } from 'vue'
 import type { ButtonSize } from '@vben/types'
 import { useAttrs, computed } from 'vue'
@@ -7,6 +8,7 @@ import CountButton from './countdown-button.vue'
 
 const { bem } = createNamespace('count-down-input')
 const attrs = useAttrs()
+
 const emit = defineEmits(['change'])
 
 const props = defineProps({
@@ -38,7 +40,8 @@ const slotKeys = computed(() => {
 
 <template>
   <vben-input v-bind="attrs" :class="bem()" :size="size" :value="state">
-    <template #addonAfter>
+    <!---DB:改正错误 <template #addonAfter> -->
+    <template #suffix>
       <CountButton
         :size="size"
         :count="count"

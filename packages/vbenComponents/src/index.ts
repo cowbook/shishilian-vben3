@@ -66,6 +66,9 @@ export const setNotice = (func = () => {}) => {
   registerNotice = func
   console.log('useNotice已注册')
 }
+
+
+
 export const useNotice = () => {
   notice = registerNotice()
   if (!notice) {
@@ -73,6 +76,8 @@ export const useNotice = () => {
   }
   return notice
 }
+
+
 
 //Message 相关
 let registerMsg = () => {}
@@ -84,6 +89,8 @@ export const useMsg = () => {
   }
   return msg
 }
+
+
 
 export const setMessage = (func = () => {}) => {
   registerMsg = func

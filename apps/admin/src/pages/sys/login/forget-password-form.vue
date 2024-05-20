@@ -56,6 +56,40 @@ async function handleReset() {
         />
       </vben-form-item>
 
+      <!-- DB: 新密码-->
+      <vben-form-item
+        name="password"
+        class="enter-x"
+        inline
+        :show-label="false"
+      >
+        <vben-input
+          size="large"
+          visibilityToggle
+          v-model:value="formData.password"
+          :placeholder="t('sys.login.password')"
+        />
+      </vben-form-item>
+      <vben-form-item
+        name="confirmPassword"
+        class="enter-x"
+        inline
+        :show-label="false"
+      >
+        <vben-input
+          size="large"
+          type="password"
+          visibilityToggle
+          v-model:value="formData.confirmPassword"
+          :placeholder="t('sys.login.confirmPassword')"
+        />
+      </vben-form-item>
+      <!--
+        DB
+      -->
+
+
+
       <div class="enter-x">
         <vben-button
           type="primary"

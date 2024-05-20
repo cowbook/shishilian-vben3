@@ -67,7 +67,7 @@ export default {
     loginSuccessDesc: '欢迎回来',
 
     // placeholder
-    accountPlaceholder: '请输入账号',
+    accountPlaceholder: '请输入11位手机号码',
     passwordPlaceholder: '请输入密码',
     smsPlaceholder: '请输入验证码',
     mobilePlaceholder: '请输入手机号码',

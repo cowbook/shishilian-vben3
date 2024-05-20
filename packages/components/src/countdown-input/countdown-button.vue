@@ -53,6 +53,6 @@ async function handleStart() {
     @click="handleStart"
     :loading="loading"
   >
-    {{ buttonText }}
+   {{ buttonText }}
   </vben-button>
 </template>

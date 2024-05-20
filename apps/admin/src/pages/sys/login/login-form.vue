@@ -19,12 +19,12 @@ import {
 import LoginFormTitle from './login-form-title.vue';
 
 //DB:区分不同的入口是注册还是登录
-import { useGo } from '/@/hooks/web/usePage';
-import { useRoute } from 'vue-router';  
+import { useRoute,useRouter } from 'vue-router';  
 const route = useRoute();
+const router = useRouter();
 const showModal =ref(false);
 
-console.log('path',route.path);
+//DB:console.log('path',route.path);
 
 const formRef = ref();
 const loading = ref(false);
@@ -43,8 +43,8 @@ if(route.path == '/reg'){
 }
 
 const formData = reactive({
-  account: 'vben',
-  password: '123456',
+  account: '',
+  password: '',
   groupid: 0, //DB:添加社团编号
 
 });
@@ -54,7 +54,7 @@ const options = ref<Array<Object>>([]);
 
 //DB:添加跳转到注册页面
 async function goReg() {
-    go(PageEnum.BASE_REGISTER);
+    router.push({ path: '/reg' });
 }
 
 
@@ -222,9 +222,11 @@ async function handleLogin() {
         </vben-button>
       </vben-grid-item>
       <vben-grid-item :md="7" :xs="24">
+
         <vben-button block @click="setLoginState(LoginStateEnum.REGISTER)">
           {{t('sys.login.registerButton')}}
         </vben-button>
+
       </vben-grid-item>
     </vben-grid>
 

@@ -31,6 +31,14 @@ async function handleLogin() {
   if (!data) return
   console.log(data)
 }
+
+async function sendCode() {
+  console.log('send!');
+  return true;
+}
+
+
+
 </script>
 <template>
   <template v-if="show">
@@ -50,12 +58,30 @@ async function handleLogin() {
         />
       </vben-form-item>
       <vben-form-item name="sms" class="enter-x" inline :show-label="false">
-        <count-down-input
-          size="large"
-          class="fix-auto-fill"
-          v-model:value="formData.sms"
-          :placeholder="t('sys.login.smsCode')"
-        />
+
+        <!-- DB: 添加发送短信按钮 -->
+        <vben-grid class="enter-x" :cols="3">
+          <vben-grid-item :md="8" :xs="24">
+
+            <count-down-input
+                size="large"
+                :sendCodeApi = "sendCode"
+                class="fix-auto-fill"
+                v-model:value="formData.sms"
+                :placeholder="t('sys.login.smsCode')"
+              />
+          
+          </vben-grid-item>
+
+          <vben-grid-item :md="8" :xs="24">
+
+            <vben-button block @click="setLoginState(LoginStateEnum.QR_CODE)">
+              {{t('sys.login.qrSignInFormTitle')}}
+            </vben-button>
+
+          </vben-grid-item>
+        </vben-grid>
+       
       </vben-form-item>
 
       <div class="enter-x">
